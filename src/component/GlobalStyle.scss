@@ -5,6 +5,10 @@
     --primary: #f1204a;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 head {
     font-size: 62.5%;
 }
@@ -13,4 +17,5 @@ body {
     font-family: 'IBM Plex Sans', san-serif;
     font-size: 1.6rem;
     line-height: 1.5;
+    text-rendering: optimizeSpeed;
 }
