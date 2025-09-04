@@ -30,4 +30,9 @@ export default defineConfig({
     port: 3000,
     open: true,
   },
+  css: {
+    modules: {
+      generateScopedName: '[name]_[local]__[hash:base64:5]',
+    },
+  },
 });
