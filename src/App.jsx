@@ -6,32 +6,30 @@ import { DefaultLayout } from './component/layout';
 function App() {
     return (
         <Router>
-            <div>
-                <Routes>
-                    {publicRoutes.map((route, i) => {
-                        const Page = route.component;
-                        let Layout = DefaultLayout;
+            <Routes>
+                {publicRoutes.map((route, i) => {
+                    const Page = route.component;
+                    let Layout = DefaultLayout;
 
-                        if (route.layout) {
-                            Layout = route.layout;
-                        } else if (route.layout === null) {
-                            Layout = Fragment;
-                        }
+                    if (route.layout) {
+                        Layout = route.layout;
+                    } else if (route.layout === null) {
+                        Layout = Fragment;
+                    }
 
-                        return (
-                            <Route
-                                key={i}
-                                path={route.path}
-                                element={
-                                    <Layout>
-                                        <Page />
-                                    </Layout>
-                                }
-                            />
-                        );
-                    })}
-                </Routes>
-            </div>
+                    return (
+                        <Route
+                            key={i}
+                            path={route.path}
+                            element={
+                                <Layout>
+                                    <Page />
+                                </Layout>
+                            }
+                        />
+                    );
+                })}
+            </Routes>
         </Router>
     );
 }

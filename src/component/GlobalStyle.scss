@@ -3,9 +3,11 @@
 
 :root {
     --primary: #f1204a;
+    --black: #000;
+    --text-color: #333;
 
     // Default layout
-    --default-layout-height-header: 60px;
+    --default-layout-height-header: 70px;
     --default-layout-width: 1150px;
 }
 
@@ -24,4 +26,16 @@ body {
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
+}
+
+button,
+input,
+[tabindex] {
+    outline: none;
+    border: none;
+}
+
+a[href] {
+    text-decoration: none;
+    color: var(--text-color);
 }
