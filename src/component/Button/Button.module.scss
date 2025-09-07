@@ -1,0 +1,83 @@
+.wrapper {
+    cursor: pointer;
+    align-items: center;
+    min-width: 100px;
+    border-radius: 6px;
+    padding: 8px 20px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    background-color: var(--while);
+    border: 1px solid transparent;
+    user-select: none;
+
+    + .wrapper {
+        margin-left: 8px;
+    }
+}
+
+//Button
+
+.rounded {
+    border-radius: 999px;
+    box-shadow: 0 2px 8px rgb(0 0 0 /6%);
+    border-color: rgba(22, 24, 35, 0.12);
+    &:hover {
+        border-color: rgba(22, 24, 35, 0.2);
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+}
+
+.outline {
+    color: var(--primary);
+    border-color: var(--primary);
+    &:hover {
+        border-color: var(--primary);
+
+        background-color: rgba(254, 44, 85, 0.06);
+    }
+}
+
+.primary {
+    color: var(--while);
+    background-color: var(--primary);
+    border-color: var(--primary);
+    &:hover {
+        background-color: #ea284e;
+        border-color: var(--primary);
+    }
+}
+
+.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+    &:hover {
+        background-color: var(--primary);
+    }
+}
+
+//Button size
+.small {
+    min-width: 88px;
+    padding: 4px 20px;
+}
+
+.large {
+    min-width: 160px;
+    padding: 8px 20px;
+}
+
+//Button Text
+.text {
+    color: var(--text-color);
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+//Button (left/right) Icon
+//Chọn class title đứng liền kề sau thẻ icon
+.icon + .title,
+.title + .icon {
+    margin-left: 8px;
+}

@@ -29,7 +29,7 @@
     transition: border 0.3s;
 
     .input {
-        font-size: 1.2rem;
+        font-size: 1rem;
         flex: 1;
         background-color: transparent;
         height: 100%;
@@ -55,7 +55,7 @@
 
 .search,
 .search-result {
-    width: 361px;
+    width: 350px;
 }
 .search-title {
     padding: 5px 12px;
@@ -91,5 +91,8 @@
     }
 }
 
+//Action
 .action {
+    display: flex;
+    align-items: center;
 }
