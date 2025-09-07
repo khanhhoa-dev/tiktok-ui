@@ -3,6 +3,10 @@ import {
     faSpinner,
     faCircleXmark,
     faMagnifyingGlass,
+    faEllipsisVertical,
+    faLanguage,
+    faCircleQuestion,
+    faKeyboard,
 } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react/headless';
 import { useEffect, useState } from 'react';
@@ -13,6 +17,7 @@ import styles from './Header.module.scss';
 import images from '@/assets/images';
 import { Wrapper as PopperWrapper } from '@/Popper';
 import AccountItem from '@/component/AccountItem';
+import Menu from '@/Popper/Menu';
 
 const cx = classNames.bind(styles);
 
@@ -21,9 +26,25 @@ function Header() {
 
     useEffect(() => {
         setTimeout(() => {
-            setSearchResult([1]);
+            setSearchResult([]);
         }, 0);
     }, []);
+
+    const listMenu = [
+        {
+            icon: <FontAwesomeIcon icon={faLanguage} />,
+            title: 'English',
+        },
+        {
+            icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+            title: 'Feedback and help ',
+            to: '/feedback',
+        },
+        {
+            icon: <FontAwesomeIcon icon={faKeyboard} />,
+            title: 'KeyBoard Shortcuts',
+        },
+    ];
 
     return (
         <header className={cx('wrapper')}>
@@ -68,6 +89,11 @@ function Header() {
                 <div className={cx('action')}>
                     <Button text>Up load</Button>
                     <Button primary>Log in</Button>
+                    <Menu datas={listMenu}>
+                        <button className={cx('icon-dot')}>
+                            <FontAwesomeIcon icon={faEllipsisVertical} />
+                        </button>
+                    </Menu>
                 </div>
             </div>
         </header>
