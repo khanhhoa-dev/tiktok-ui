@@ -1,3 +1,4 @@
+//Menulist
 .menu-list {
     width: 224px;
     .menu-item {
@@ -10,6 +11,8 @@
     font-weight: 500;
     width: 100%;
     border-radius: 0;
+    line-height: 1.8rem;
+    justify-content: flex-start;
     &:hover {
         background-color: rgba(24, 35, 25, 0.06);
     }
@@ -17,4 +20,27 @@
 
 .menu-popper {
     padding-bottom: 8px;
+}
+
+//Header Languages
+.header {
+    position: relative;
+    // margin-top: -8px;
+}
+
+.btn-back {
+    width: 65px;
+    background-color: transparent;
+    font-size: 1.2rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.header-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    font-size: 1.2rem;
+    font-weight: 500;
 }

@@ -30,10 +30,45 @@ function Header() {
         }, 0);
     }, []);
 
+    //Handle
+    const handleLangugesMenu = item => {
+        console.log(item);
+    };
+
     const listMenu = [
         {
             icon: <FontAwesomeIcon icon={faLanguage} />,
             title: 'English',
+            children: {
+                title: 'Languages',
+                data: [
+                    {
+                        type: 'languages',
+                        code: 'en',
+                        title: 'English',
+                    },
+                    {
+                        type: 'languages',
+                        code: 'vi',
+                        title: 'Việt Nam',
+                    },
+                    {
+                        type: 'languages',
+                        code: 'no',
+                        title: 'Norsk',
+                    },
+                    {
+                        type: 'languages',
+                        code: 'se',
+                        title: 'Svenska',
+                    },
+                    {
+                        type: 'languages',
+                        code: 'dk',
+                        title: 'Dansk',
+                    },
+                ],
+            },
         },
         {
             icon: <FontAwesomeIcon icon={faCircleQuestion} />,
@@ -89,7 +124,7 @@ function Header() {
                 <div className={cx('action')}>
                     <Button text>Up load</Button>
                     <Button primary>Log in</Button>
-                    <Menu datas={listMenu}>
+                    <Menu items={listMenu} onClick={handleLangugesMenu}>
                         <button className={cx('icon-dot')}>
                             <FontAwesomeIcon icon={faEllipsisVertical} />
                         </button>

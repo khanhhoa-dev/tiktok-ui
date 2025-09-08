@@ -13,6 +13,7 @@
 
 .inner {
     width: var(--default-layout-width, 1150px);
+    padding: 0 var(--default-layout-space);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -101,4 +102,6 @@
 .icon-dot {
     background-color: transparent;
     margin-left: 20px;
+    font-size: 1.6rem;
+    cursor: pointer;
 }

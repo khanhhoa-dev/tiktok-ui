@@ -1,6 +1,7 @@
 .wrapper {
     cursor: pointer;
     align-items: center;
+    justify-content: center;
     min-width: 100px;
     border-radius: 6px;
     padding: 8px 20px;
@@ -10,7 +11,6 @@
     border: 1px solid transparent;
     user-select: none;
     display: flex;
-    align-items: center;
 
     + .wrapper {
         margin-left: 8px;
