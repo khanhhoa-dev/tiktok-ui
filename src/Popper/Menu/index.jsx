@@ -14,6 +14,7 @@ function Menu({ children, items = [], onClick = defaultFn }) {
     const [history, setHistory] = useState([{ data: items }]);
 
     const current = history[history.length - 1];
+
     const handleBack = () => {
         return setHistory(prev => {
             return prev.slice(0, prev.length - 1);
@@ -41,9 +42,11 @@ function Menu({ children, items = [], onClick = defaultFn }) {
     return (
         <Tippy
             interactive
-            placement="top-start"
+            placement="top-end"
+            offset={[20, 14]}
             delay={[0, 700]}
             // visible
+            onHide={() => setHistory(prev => prev.slice(0, 1))} //Khi Tippy chuẩn bị ẩn thì nó chạy CallBack bên trong
             render={attrs => (
                 <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
                     <PopperWrapper className={cx('menu-popper')}>

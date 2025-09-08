@@ -1,13 +1,13 @@
 //Menulist
 .menu-list {
-    width: 224px;
+    width: 234px;
     .menu-item {
         margin-left: 0;
     }
 }
 
 .menu-item {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 500;
     width: 100%;
     border-radius: 0;
@@ -15,6 +15,9 @@
     justify-content: flex-start;
     &:hover {
         background-color: rgba(24, 35, 25, 0.06);
+    }
+    &.underline {
+        border-top: 1px solid rgba(24, 35, 25, 0.15);
     }
 }
 

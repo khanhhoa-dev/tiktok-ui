@@ -96,6 +96,7 @@
 .action {
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 //Icon-Dot
@@ -103,5 +104,21 @@
     background-color: transparent;
     margin-left: 20px;
     font-size: 1.6rem;
+    cursor: pointer;
+}
+
+.user-img {
+    width: 32px;
+    margin-left: 12px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 5px solid rgba(22, 24, 35, 0.1);
+}
+
+.btn-icon {
+    color: var(--text-color);
+    font-size: 1.2rem;
+    padding: 0px 8px;
     cursor: pointer;
 }

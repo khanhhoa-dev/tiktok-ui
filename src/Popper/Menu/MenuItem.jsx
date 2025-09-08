@@ -4,10 +4,13 @@ import Button from '@/component/Button/Button';
 
 const cx = classNames.bind(styles);
 function MenuItem({ menuItem, onClick }) {
+    const classnames = cx('menu-item', {
+        underline: menuItem.underline,
+    });
     return (
         <Button
+            className={classnames}
             leftIcon={menuItem.icon}
-            className={cx('menu-item')}
             to={menuItem.to}
             onClick={onClick}
         >
