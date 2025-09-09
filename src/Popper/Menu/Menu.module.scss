@@ -11,7 +11,9 @@
     font-weight: 500;
     width: 100%;
     border-radius: 0;
-    line-height: 1.8rem;
+    padding: 12px 18px;
+    line-height: 0.9rem;
+    align-items: center;
     justify-content: flex-start;
     &:hover {
         background-color: rgba(24, 35, 25, 0.06);

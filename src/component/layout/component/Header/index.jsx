@@ -2,18 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faSpinner,
     faCircleXmark,
-    faMagnifyingGlass,
     faEllipsisVertical,
-    faLanguage,
-    faCircleQuestion,
-    faKeyboard,
-    faCloudDownload,
-    faPaperPlane,
-    faInbox,
-    faCircleUser,
-    faCoins,
-    faGear,
-    faArrowRightFromBracket,
 } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
@@ -27,6 +16,20 @@ import images from '@/assets/images';
 import { Wrapper as PopperWrapper } from '@/Popper';
 import AccountItem from '@/component/AccountItem';
 import Menu from '@/Popper/Menu';
+import {
+    UploadIcon,
+    MessageIcon,
+    InboxIcon,
+    SearchIcon,
+    ProfileIcon,
+    CoinIcon,
+    SettingsIcon,
+    HelpIcon,
+    LanguageIcon,
+    ShortcutsIcon,
+    LogoutIcon,
+} from '@/component/icons';
+import Image from '@/component/Images';
 
 const cx = classNames.bind(styles);
 
@@ -48,7 +51,7 @@ function Header() {
 
     const MENU_ITEMS = [
         {
-            icon: <FontAwesomeIcon icon={faLanguage} />,
+            icon: <LanguageIcon />,
             title: 'English',
             children: {
                 title: 'Languages',
@@ -82,35 +85,35 @@ function Header() {
             },
         },
         {
-            icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+            icon: <HelpIcon />,
             title: 'Feedback and help ',
             to: '/feedback',
         },
         {
-            icon: <FontAwesomeIcon icon={faKeyboard} />,
+            icon: <ShortcutsIcon />,
             title: 'KeyBoard Shortcuts',
         },
     ];
 
     const USER_MENU = [
         {
-            icon: <FontAwesomeIcon icon={faCircleUser} />,
+            icon: <ProfileIcon />,
             title: 'View Profile',
             to: '/profile',
         },
         {
-            icon: <FontAwesomeIcon icon={faCoins} />,
+            icon: <CoinIcon />,
             title: 'Get Coin',
             to: '/coins',
         },
         {
-            icon: <FontAwesomeIcon icon={faGear} />,
+            icon: <SettingsIcon />,
             title: 'Settings',
             to: '/settings',
         },
         ...MENU_ITEMS,
         {
-            icon: <FontAwesomeIcon icon={faArrowRightFromBracket} />,
+            icon: <LogoutIcon />,
             title: 'Log Out',
             underline: true,
         },
@@ -152,7 +155,7 @@ function Header() {
                             className={cx('loading')}
                         />
                         <button className={cx('search-btn')}>
-                            <FontAwesomeIcon icon={faMagnifyingGlass} />
+                            <SearchIcon />
                         </button>
                     </div>
                 </HeadLessTippy>
@@ -161,17 +164,17 @@ function Header() {
                         <>
                             <Tippy content={<span>Upload Video</span>}>
                                 <button className={cx('btn-icon')}>
-                                    <FontAwesomeIcon icon={faCloudDownload} />
+                                    <UploadIcon />
                                 </button>
                             </Tippy>
                             <Tippy content={<span>Message</span>}>
                                 <button className={cx('btn-icon')}>
-                                    <FontAwesomeIcon icon={faPaperPlane} />
+                                    <MessageIcon />
                                 </button>
                             </Tippy>
                             <Tippy content={<span>Inbox</span>}>
                                 <button className={cx('btn-icon')}>
-                                    <FontAwesomeIcon icon={faInbox} />
+                                    <InboxIcon />
                                 </button>
                             </Tippy>
                         </>
@@ -186,7 +189,7 @@ function Header() {
                         onClick={handleLangugesMenu}
                     >
                         {currentUser ? (
-                            <img
+                            <Image
                                 className={cx('user-img')}
                                 src="https://p16-sign-sg.tiktokcdn.com/tos-alisg-avt-0068/25af0fb59badda405833b44211b692b1~tplv-tiktokx-cropcenter:720:720.jpeg?dr=14579&refresh_token=96ca26b9&x-expires=1757512800&x-signature=0G6a6pjJDqgVwudMHlINcxjt%2FgQ%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=sg1"
                                 alt="Image-User"

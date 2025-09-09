@@ -8,7 +8,7 @@
     --while: #fff;
 
     // Default layout
-    --default-layout-height-header: 70px;
+    --default-layout-height-header: 60px;
     --default-layout-width: 1150px;
     --default-layout-space: 24px;
 }
@@ -28,6 +28,25 @@ body {
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
+}
+
+//Fonts
+@font-face {
+    font-family: TikTokFont;
+    src: url(/src/assets/fonts/TikTokFont-Regular.woff2);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: TikTokFont;
+    src: url(/src/assets/fonts/TikTokFont-Semibold.woff2);
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: TikTokFont;
+    src: url(/src/assets/fonts/TikTokFont-Bold.woff2);
+    font-weight: 700;
 }
 
 button,
