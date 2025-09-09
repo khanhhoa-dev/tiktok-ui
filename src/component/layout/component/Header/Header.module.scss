@@ -19,80 +19,6 @@
     justify-content: space-between;
 }
 
-.search {
-    position: relative;
-    display: flex;
-    height: var(--height-search);
-    border-radius: var(--boder-parent-input);
-    background-color: rgba(22, 24, 35, 0.1);
-    padding-left: 16px;
-    border: 1.5px solid transparent;
-    transition: border 0.3s;
-
-    .input {
-        font-size: 1rem;
-        flex: 1;
-        background-color: transparent;
-        height: 100%;
-        caret-color: var(--primary);
-    }
-    .input:not(:placeholder-shown) ~ .search-btn {
-        //Khi input không còn placehoder nữa
-        color: rgba(22, 24, 35, 0.8);
-    }
-    &:focus-within {
-        border-color: rgba(22, 24, 35, 0.4);
-    }
-    &::after {
-        content: '';
-        position: absolute;
-        width: 1px;
-        top: var(--top-range);
-        height: calc(var(--height-search) - var(--top-range) * 2);
-        background-color: rgba(22, 24, 35, 0.3);
-        right: var(--width-range-right);
-    }
-}
-
-.search,
-.search-result {
-    width: 350px;
-}
-.search-title {
-    padding: 5px 12px;
-    color: rgba(22, 24, 35, 0.5);
-    font-size: 1rem;
-    font-weight: 600;
-}
-
-.clear,
-.loading {
-    position: absolute;
-    right: calc(var(--width-range-right) + 16px);
-    top: 50%;
-    transform: translateY(-50%);
-    color: rgba(22, 24, 35, 0.4);
-    font-size: 1.2rem;
-}
-
-.search-btn {
-    padding-top: 4px;
-    width: var(--width-range-right);
-    height: 100%;
-    border-top-right-radius: var(--boder-parent-input);
-    border-bottom-right-radius: var(--boder-parent-input);
-    color: rgba(22, 24, 35, 0.4);
-    font-size: 1.4rem;
-    background-color: transparent;
-    &:hover {
-        background-color: rgba(22, 24, 35, 0.03);
-        cursor: pointer;
-    }
-    &:active {
-        background-color: rgba(22, 24, 35, 0.06);
-    }
-}
-
 //Action
 .action {
     display: flex;
@@ -116,6 +42,7 @@
     cursor: pointer;
     overflow: hidden;
     border: 5px solid rgba(22, 24, 35, 0.1);
+    object-fit: cover;
 }
 
 .btn-icon {

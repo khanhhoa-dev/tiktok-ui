@@ -1,5 +1,5 @@
-import Tippy from '@tippyjs/react/headless';
 import { useState } from 'react';
+import Tippy from '@tippyjs/react/headless';
 
 import classNames from 'classnames/bind';
 import styles from './Menu.module.scss';
@@ -43,7 +43,7 @@ function Menu({ children, items = [], onClick = defaultFn }) {
         <Tippy
             interactive
             placement="top-end"
-            offset={[20, 14]}
+            offset={[30, 14]}
             delay={[0, 700]}
             // visible
             onHide={() => setHistory(prev => prev.slice(0, 1))} //Khi Tippy chuẩn bị ẩn thì nó chạy CallBack bên trong
