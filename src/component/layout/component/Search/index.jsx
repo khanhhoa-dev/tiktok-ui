@@ -8,6 +8,7 @@ import { Wrapper as PopperWrapper } from '@/Popper';
 import AccountItem from '@/component/AccountItem';
 import classNames from 'classnames/bind';
 import styles from './Styles.module.scss';
+import { useDebounce } from '@/hooks';
 
 const cx = classNames.bind(styles);
 function Search() {
@@ -16,16 +17,18 @@ function Search() {
     const [resultDisplay, setResultDisplay] = useState(true);
     const [loading, setLoading] = useState(false);
 
+    const debounce = useDebounce(inputValue, 600);
+
     const inputRef = useRef();
 
     useEffect(() => {
-        if (!inputValue.trim()) {
+        if (!debounce.trim()) {
             setSearchResult([]);
             return;
         }
         setLoading(true);
         fetch(
-            `https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(inputValue)}&type=less`
+            `https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(debounce)}&type=less`
         )
             .then(res => res.json())
             .then(res => {
@@ -35,7 +38,7 @@ function Search() {
             .catch(() => {
                 return setLoading(false);
             });
-    }, [inputValue]);
+    }, [debounce]);
 
     //Handle
     const handleClearValue = () => {
@@ -45,7 +48,9 @@ function Search() {
     };
 
     const handleForcusInput = () => {
-        setResultDisplay(true);
+        if (inputValue) {
+            setResultDisplay(true);
+        }
     };
 
     return (
