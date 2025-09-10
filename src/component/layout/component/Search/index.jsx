@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
-import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
+import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import HeadLessTippy from '@tippyjs/react/headless';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -14,14 +14,28 @@ function Search() {
     const [inputValue, setInputValue] = useState('');
     const [searchResult, setSearchResult] = useState([]);
     const [resultDisplay, setResultDisplay] = useState(true);
+    const [loading, setLoading] = useState(false);
 
     const inputRef = useRef();
 
     useEffect(() => {
-        setTimeout(() => {
-            setSearchResult([1, 2]);
-        }, 0);
-    }, []);
+        if (!inputValue.trim()) {
+            setSearchResult([]);
+            return;
+        }
+        setLoading(true);
+        fetch(
+            `https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(inputValue)}&type=less`
+        )
+            .then(res => res.json())
+            .then(res => {
+                setSearchResult(res.data);
+                setLoading(false);
+            })
+            .catch(() => {
+                return setLoading(false);
+            });
+    }, [inputValue]);
 
     //Handle
     const handleClearValue = () => {
@@ -44,9 +58,11 @@ function Search() {
                 <div className={cx('search-result')} tabIndex="-1" {...attrs}>
                     <PopperWrapper>
                         <h4 className={cx('search-title')}>Account</h4>
-                        <AccountItem />
-                        <AccountItem />
-                        <AccountItem />
+                        {searchResult.map(result => {
+                            return (
+                                <AccountItem key={result.id} data={result} />
+                            );
+                        })}
                     </PopperWrapper>
                 </div>
             )}
@@ -58,18 +74,23 @@ function Search() {
                     placeholder="Search account and videos"
                     className={cx('input')}
                     onChange={e => {
+                        e.target.value = e.target.value.trimStart(); //Chặn thao tác nhấp dấu cách ở input khi bắt đầu nhập
                         setInputValue(e.target.value);
                         setResultDisplay(true);
                     }}
                     onFocus={handleForcusInput}
                 />
-                {inputValue && (
+                {inputValue && loading ? (
+                    <FontAwesomeIcon
+                        icon={faSpinner}
+                        className={cx('loading')}
+                    />
+                ) : (
                     <button className={cx('clear')} onClick={handleClearValue}>
                         <FontAwesomeIcon icon={faCircleXmark} />
                     </button>
                 )}
 
-                {/* <FontAwesomeIcon icon={faSpinner} className={cx('loading')} /> */}
                 <button className={cx('search-btn')}>
                     <SearchIcon />
                 </button>

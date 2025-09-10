@@ -1,11 +1,11 @@
 import { forwardRef, useState } from 'react';
-import imgError from '@/assets/images';
+import images from '@/assets/images';
 
 function Image({ alt, src, className, ...props }, ref) {
     const [fallBack, setFallBack] = useState('');
 
     const handleErrorImg = () => {
-        return setFallBack(imgError.imgError);
+        return setFallBack(images.avt);
     };
     return (
         <img

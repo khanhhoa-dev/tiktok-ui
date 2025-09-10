@@ -1,9 +1,9 @@
 import logo from '@/assets/images/logo.svg';
-import imgError from '@/assets/images/imgError.svg';
+import avt from '@/assets/images/avt.svg';
 
 const images = {
     logo,
-    imgError,
+    avt,
 };
 
 export default images;
