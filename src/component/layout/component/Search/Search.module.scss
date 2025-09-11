@@ -10,6 +10,7 @@
 
     .input {
         font-size: 1rem;
+        font-family: var(--font-family);
         flex: 1;
         background-color: transparent;
         height: 100%;
@@ -52,6 +53,7 @@
     transform: translateY(-50%);
     color: rgba(22, 24, 35, 0.4);
     font-size: 1.1rem;
+    cursor: pointer;
 }
 
 .loading {

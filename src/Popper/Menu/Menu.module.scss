@@ -27,10 +27,16 @@
     padding-bottom: 8px;
 }
 
+.menu-body {
+    overflow-y: auto;
+}
+
 //Header Languages
 .header {
     position: relative;
     // margin-top: -8px;
+    line-height: 2;
+    flex-shrink: 0;
 }
 
 .btn-back {

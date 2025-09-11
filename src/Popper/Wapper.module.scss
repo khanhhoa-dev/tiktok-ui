@@ -1,4 +1,6 @@
 .wrapper {
+    display: flex;
+    flex-direction: column;
     padding-top: 8px;
     width: 100%;
     max-height: min(calc(100vh - 96px - 60px), 734px);
@@ -6,6 +8,4 @@
     border-radius: 8px;
     box-shadow: rgb(0 0 0 /12%) 0px 2px 12px;
     background-color: rgb(255, 255, 255);
-    overflow-y: auto;
-    overflow-x: hidden;
 }

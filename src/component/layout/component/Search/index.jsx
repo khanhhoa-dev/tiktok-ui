@@ -8,10 +8,11 @@ import { SearchIcon } from '@/component/icons';
 import { Wrapper as PopperWrapper } from '@/Popper';
 import AccountItem from '@/component/AccountItem';
 import classNames from 'classnames/bind';
-import styles from './Styles.module.scss';
+import styles from './Search.module.scss';
 import { useDebounce } from '@/hooks';
 
 const cx = classNames.bind(styles);
+
 function Search() {
     const [inputValue, setInputValue] = useState('');
     const [searchResult, setSearchResult] = useState([]);
@@ -24,7 +25,6 @@ function Search() {
 
     useEffect(() => {
         if (!debounce.trim()) {
-            setSearchResult([]);
             return;
         }
         setLoading(true);
@@ -43,7 +43,7 @@ function Search() {
     //Handle
     const handleClearValue = () => {
         setInputValue('');
-        setResultDisplay(false);
+        setSearchResult([]);
         inputRef.current.focus();
     };
 
@@ -79,9 +79,8 @@ function Search() {
                     placeholder="Search account and videos"
                     className={cx('input')}
                     onChange={e => {
-                        e.target.value = e.target.value.trimStart(); //Chặn thao tác nhấp dấu cách ở input khi bắt đầu nhập
-                        setInputValue(e.target.value);
-                        // setResultDisplay(true);
+                        //Chặn thao tác nhấp dấu cách ở input khi bắt đầu nhập
+                        setInputValue(e.target.value.trimStart());
                     }}
                     onFocus={handleForcusInput}
                 />
@@ -96,7 +95,11 @@ function Search() {
                     </button>
                 )}
 
-                <button className={cx('search-btn')}>
+                <button
+                    className={cx('search-btn')}
+                    //Ngăn hành vi mặc định
+                    onMouseDown={e => e.preventDefault()}
+                >
                     <SearchIcon />
                 </button>
             </div>

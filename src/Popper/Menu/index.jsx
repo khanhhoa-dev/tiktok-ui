@@ -10,7 +10,12 @@ import Header from './Header';
 const cx = classNames.bind(styles);
 const defaultFn = () => {};
 
-function Menu({ children, items = [], onClick = defaultFn }) {
+function Menu({
+    children,
+    items = [],
+    onClick = defaultFn,
+    hideOnClick = false,
+}) {
     const [history, setHistory] = useState([{ data: items }]);
 
     const current = history[history.length - 1];
@@ -45,6 +50,7 @@ function Menu({ children, items = [], onClick = defaultFn }) {
             placement="top-end"
             offset={[30, 14]}
             delay={[0, 700]}
+            hideOnClick={hideOnClick}
             // visible
             onHide={() => setHistory(prev => prev.slice(0, 1))} //Khi Tippy chuẩn bị ẩn thì nó chạy CallBack bên trong
             render={attrs => (
@@ -53,7 +59,9 @@ function Menu({ children, items = [], onClick = defaultFn }) {
                         {history.length > 1 && (
                             <Header title="Languages" onBack={handleBack} />
                         )}
-                        {renderMenuItem()}
+                        <div className={cx('menu-body')}>
+                            {renderMenuItem()}
+                        </div>
                     </PopperWrapper>
                 </div>
             )}

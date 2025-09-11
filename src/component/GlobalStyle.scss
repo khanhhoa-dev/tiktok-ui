@@ -7,6 +7,8 @@
     --text-color: #161823;
     --while: #fff;
 
+    --font-family: 'IBM Plex Sans', san-serif;
+
     // Default layout
     --default-layout-height-header: 60px;
     --default-layout-width: 1150px;
@@ -24,10 +26,30 @@ head {
 }
 
 body {
-    font-family: 'IBM Plex Sans', san-serif;
+    font-family: var(--font-family);
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
+    overflow-y: overlay;
+}
+
+//Scroll
+/* Định dạng thanh cuộn tổng thể */
+::-webkit-scrollbar {
+    border-radius: 0;
+    width: 8px;
+}
+
+/* Định dạng thanh trượt (thumb) */
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+/* Định dạng đường ray (track) */
+::-webkit-scrollbar-track {
+    border-radius: 0;
+    background-color: rgba(0, 0, 0, 0);
 }
 
 //Fonts
