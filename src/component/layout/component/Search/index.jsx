@@ -3,6 +3,7 @@ import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import HeadLessTippy from '@tippyjs/react/headless';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import * as searchServices from '@/apiServices/searchServices';
 import { SearchIcon } from '@/component/icons';
 import { Wrapper as PopperWrapper } from '@/Popper';
 import AccountItem from '@/component/AccountItem';
@@ -27,17 +28,16 @@ function Search() {
             return;
         }
         setLoading(true);
-        fetch(
-            `https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(debounce)}&type=less`
-        )
-            .then(res => res.json())
-            .then(res => {
-                setSearchResult(res.data);
+        const fetchApi = async () => {
+            try {
+                const result = await searchServices.search(debounce);
+                setSearchResult(result);
                 setLoading(false);
-            })
-            .catch(() => {
-                return setLoading(false);
-            });
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        fetchApi();
     }, [debounce]);
 
     //Handle
@@ -81,7 +81,7 @@ function Search() {
                     onChange={e => {
                         e.target.value = e.target.value.trimStart(); //Chặn thao tác nhấp dấu cách ở input khi bắt đầu nhập
                         setInputValue(e.target.value);
-                        setResultDisplay(true);
+                        // setResultDisplay(true);
                     }}
                     onFocus={handleForcusInput}
                 />
