@@ -5,7 +5,7 @@ import 'tippy.js/dist/tippy.css';
 import { Link } from 'react-router-dom';
 
 import router from '@/config/router';
-import { Button } from '@/component/Button';
+import { Button } from '@/components/Button';
 import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
 import images from '@/assets/images';
@@ -21,8 +21,8 @@ import {
     LanguageIcon,
     ShortcutsIcon,
     LogoutIcon,
-} from '@/component/icons';
-import Image from '@/component/Images';
+} from '@/components/icons';
+import Image from '@/components/Images';
 import Search from '../Search';
 
 const cx = classNames.bind(styles);
@@ -129,6 +129,7 @@ function Header() {
                             <Tippy content={<span>Inbox</span>}>
                                 <button className={cx('btn-icon')}>
                                     <InboxIcon />
+                                    <span className={cx('badge')}>11</span>
                                 </button>
                             </Tippy>
                         </>

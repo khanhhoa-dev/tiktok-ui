@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import classNames from 'classnames/bind';
 import styles from './AccountItem.module.scss';
-import Images from '@/component/Images';
+import Images from '@/components/Images';
 
 const cx = classNames.bind(styles);
 function AccountItem({ data }) {

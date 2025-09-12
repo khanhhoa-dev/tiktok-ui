@@ -7,6 +7,7 @@
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 10;
     background-color: var(--while);
     height: var(--default-layout-height-header, 60px);
     box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
@@ -57,7 +58,19 @@
 .btn-icon {
     //Căn giữa theo phần tử cha
     display: flex;
-    line-height: 1.2rem;
+    line-height: 1rem;
     padding: 0px 8px;
     cursor: pointer;
+    position: relative;
+}
+
+.badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: var(--primary);
+    color: var(--while);
+    font-size: 0.8rem;
+    padding: 1px 6px;
+    border-radius: 999px;
 }

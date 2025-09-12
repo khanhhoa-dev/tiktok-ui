@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import Header from '../component/Header';
+import Header from '../components/Header';
 import SideBar from './SideBar';
 import styles from './DefaultLayout.module.scss';
 

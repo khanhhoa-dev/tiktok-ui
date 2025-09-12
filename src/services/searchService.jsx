@@ -1,9 +1,9 @@
-import * as request from '@/utils/request';
+import * as httpRequest from '@/utils/httpRequest';
 
 export const search = async (q, type = 'less') => {
     try {
         //Gọi hàm get chứ không phải phương thức get
-        const result = await request.get('users/search', {
+        const result = await httpRequest.get('users/search', {
             params: {
                 q,
                 type,
