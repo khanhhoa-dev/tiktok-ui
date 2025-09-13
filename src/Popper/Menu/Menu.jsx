@@ -1,0 +1,82 @@
+import { useState } from 'react';
+import Tippy from '@tippyjs/react/headless';
+import PropTypes from 'prop-types';
+
+import classNames from 'classnames/bind';
+import styles from './Menu.module.scss';
+import { Wrapper as PopperWrapper } from '@/Popper';
+import MenuItem from './MenuItem';
+import Header from './Header';
+
+const cx = classNames.bind(styles);
+const defaultFn = () => {};
+
+function Menu({
+    children,
+    items = [],
+    onClick = defaultFn,
+    hideOnClick = false,
+}) {
+    const [history, setHistory] = useState([{ data: items }]);
+
+    const current = history[history.length - 1];
+
+    const handleBack = () => {
+        return setHistory(prev => {
+            return prev.slice(0, prev.length - 1);
+        });
+    };
+
+    const renderMenuItem = () => {
+        return current.data.map((item, i) => {
+            const isParent = !!item.children;
+            return (
+                <MenuItem
+                    key={i}
+                    menuItem={item}
+                    onClick={() => {
+                        if (isParent) {
+                            setHistory(prev => [...prev, item.children]);
+                        } else {
+                            onClick(item);
+                        }
+                    }}
+                ></MenuItem>
+            );
+        });
+    };
+    return (
+        <Tippy
+            interactive
+            placement="top-end"
+            offset={[30, 14]}
+            delay={[0, 700]}
+            hideOnClick={hideOnClick}
+            // visible
+            onHide={() => setHistory(prev => prev.slice(0, 1))} //Khi Tippy chuẩn bị ẩn thì nó chạy CallBack bên trong
+            render={attrs => (
+                <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
+                    <PopperWrapper className={cx('menu-popper')}>
+                        {history.length > 1 && (
+                            <Header title={current.title} onBack={handleBack} />
+                        )}
+                        <div className={cx('menu-body')}>
+                            {renderMenuItem()}
+                        </div>
+                    </PopperWrapper>
+                </div>
+            )}
+        >
+            {children}
+        </Tippy>
+    );
+}
+
+Menu.propTypes = {
+    children: PropTypes.node.isRequired,
+    item: PropTypes.array,
+    onClick: PropTypes.func,
+    hideOnClick: PropTypes.bool,
+};
+
+export default Menu;

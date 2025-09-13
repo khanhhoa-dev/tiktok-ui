@@ -1,8 +1,8 @@
 const router = {
     home: '/',
-    following: 'following',
-    profile: '/:nickname',
-    upload: 'upload',
+    following: '/following',
+    profile: '/profile',
+    upload: '/upload',
 };
 
 export default router;

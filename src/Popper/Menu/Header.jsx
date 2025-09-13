@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 import styles from './Menu.module.scss';
@@ -14,5 +15,10 @@ function Header({ title, onBack }) {
         </header>
     );
 }
+
+Header.propTypes = {
+    title: PropTypes.string,
+    onBack: PropTypes.func,
+};
 
 export default Header;
