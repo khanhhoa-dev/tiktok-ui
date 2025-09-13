@@ -1,1 +1,2 @@
-export { default } from './router';
+// eslint-disable-next-line react-refresh/only-export-components
+export * from './router';

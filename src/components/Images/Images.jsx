@@ -2,23 +2,25 @@ import PropTypes from 'prop-types';
 import { forwardRef, useState } from 'react';
 import images from '@/assets/images';
 
-function Image({ alt, src, className, ...props }, ref) {
+const Image = forwardRef((props, ref) => {
+    const { alt, src, className, ...rest } = props;
     const [fallBack, setFallBack] = useState('');
 
     const handleErrorImg = () => {
-        return setFallBack(images.avt);
+        setFallBack(images.avt);
     };
+
     return (
         <img
             className={className}
             ref={ref}
             alt={alt}
             src={fallBack || src}
-            {...props}
+            {...rest}
             onError={handleErrorImg}
         />
     );
-}
+});
 
 Image.propTypes = {
     alt: PropTypes.string,
@@ -26,4 +28,4 @@ Image.propTypes = {
     className: PropTypes.string,
 };
 
-export default forwardRef(Image);
+export default Image;

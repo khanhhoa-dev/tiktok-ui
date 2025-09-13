@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import * as searchService from '@/services/searchService';
 import { SearchIcon } from '@/components/icons';
-import { Wrapper as PopperWrapper } from '@/Popper';
+import { Wrapper as PopperWrapper } from '@/components/Popper';
 import AccountItem from '@/components/AccountItem';
 import classNames from 'classnames/bind';
 import styles from './Search.module.scss';
@@ -19,18 +19,18 @@ function Search() {
     const [resultDisplay, setResultDisplay] = useState(true);
     const [loading, setLoading] = useState(false);
 
-    const debounce = useDebounce(inputValue, 600);
+    const debounceValue = useDebounce(inputValue, 600);
 
     const inputRef = useRef();
 
     useEffect(() => {
-        if (!debounce.trim()) {
+        if (!debounceValue.trim()) {
             return;
         }
         setLoading(true);
         const fetchApi = async () => {
             try {
-                const result = await searchService.search(debounce);
+                const result = await searchService.search(debounceValue);
                 setSearchResult(result);
                 setLoading(false);
             } catch (error) {
@@ -38,7 +38,7 @@ function Search() {
             }
         };
         fetchApi();
-    }, [debounce]);
+    }, [debounceValue]);
 
     //Handle
     const handleClearValue = () => {
@@ -57,6 +57,9 @@ function Search() {
         <HeadLessTippy
             interactive
             appendTo={document.body}
+            popperOptions={{
+                strategy: 'fixed', //giữ vị trí theo viewport thay vì theo body
+            }}
             visible={resultDisplay && searchResult.length > 0}
             onClickOutside={() => setResultDisplay(false)}
             render={attrs => (

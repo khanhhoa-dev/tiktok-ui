@@ -9,7 +9,7 @@ import { Button } from '@/components/Button';
 import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
 import images from '@/assets/images';
-import Menu from '@/Popper/Menu';
+import Menu from '@/components/Popper/Menu';
 import {
     UploadIcon,
     MessageIcon,
@@ -136,7 +136,9 @@ function Header() {
                     ) : (
                         <>
                             <Button text>Up load</Button>
-                            <Button primary>Log in</Button>
+                            <Button primary to="/">
+                                Log in
+                            </Button>
                         </>
                     )}
                     <Menu
