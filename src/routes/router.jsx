@@ -2,6 +2,7 @@ import Home from '@/pages/Home';
 import Following from '@/pages/Following';
 import Upload from '@/pages/Upload';
 import Profile from '@/pages/Profile';
+import Discover from '@/pages/Discover';
 
 //Layout
 import { HeaderOnly } from '@/layouts';
@@ -13,6 +14,7 @@ import config from '@/config';
 const publicRoutes = [
     { path: config.router.home, component: Home },
     { path: config.router.following, component: Following },
+    { path: config.router.discover, component: Discover },
     { path: config.router.upload, component: Upload, layout: HeaderOnly },
     { path: config.router.profile, component: Profile, layout: null },
 ];

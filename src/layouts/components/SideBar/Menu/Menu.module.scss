@@ -1,0 +1,16 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    padding: 6px 0;
+}
+
+.title {
+    flex: 1;
+    margin-left: 12px;
+    font-size: 20px;
+}
+
+.active {
+    color: var(--primary);
+}
