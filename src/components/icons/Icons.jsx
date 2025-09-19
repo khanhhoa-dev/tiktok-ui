@@ -1,4 +1,4 @@
-export const UploadIcon = ({ width = '2rem', height = '2rem', className }) => (
+export const UploadIcon = ({ width = '3rem', height = '3rem', className }) => (
     <svg
         className={className}
         width={width}
@@ -16,8 +16,8 @@ export const UploadIcon = ({ width = '2rem', height = '2rem', className }) => (
 );
 
 export const MessageIcon = ({
-    width = '1.4rem',
-    height = '1.4rem',
+    width = '2.4rem',
+    height = '2.4rem',
     className,
 }) => (
     <svg
@@ -36,11 +36,7 @@ export const MessageIcon = ({
     </svg>
 );
 
-export const InboxIcon = ({
-    width = '1.9rem',
-    height = '1.9rem',
-    className,
-}) => (
+export const InboxIcon = ({ width = '3rem', height = '3rem', className }) => (
     <svg
         className={className}
         width={width}
@@ -58,8 +54,8 @@ export const InboxIcon = ({
 );
 
 export const SearchIcon = ({
-    width = '1.6rem',
-    height = '1.6rem',
+    width = '2.6rem',
+    height = '2.6rem',
     className,
 }) => (
     <svg
@@ -79,8 +75,8 @@ export const SearchIcon = ({
 );
 
 export const ProfileIcon = ({
-    width = '1.6rem',
-    height = '1.6rem',
+    width = '2.8rem',
+    height = '2.8rem',
     className,
 }) => (
     <svg
@@ -100,8 +96,8 @@ export const ProfileIcon = ({
 );
 
 export const CoinIcon = ({
-    width = '1.6rem',
-    height = '1.6rem',
+    width = '2.8rem',
+    height = '2.8rem',
     className,
 }) => (
     <svg
@@ -126,8 +122,8 @@ export const CoinIcon = ({
 );
 
 export const SettingsIcon = ({
-    width = '1.6rem',
-    height = '1.6rem',
+    width = '2.8rem',
+    height = '2.8rem',
     className,
 }) => (
     <svg
@@ -147,8 +143,8 @@ export const SettingsIcon = ({
 );
 
 export const LanguageIcon = ({
-    width = '1.6rem',
-    height = '1.6rem',
+    width = '2.8rem',
+    height = '2.8rem',
     className,
 }) => (
     <svg
@@ -168,8 +164,8 @@ export const LanguageIcon = ({
 );
 
 export const HelpIcon = ({
-    width = '1.6rem',
-    height = '1.6rem',
+    width = '2.8rem',
+    height = '2.8rem',
     className,
 }) => (
     <svg
@@ -189,8 +185,8 @@ export const HelpIcon = ({
 );
 
 export const ShortcutsIcon = ({
-    width = '1.6rem',
-    height = '1.6rem',
+    width = '2.8rem',
+    height = '2.8rem',
     className,
 }) => (
     <svg
@@ -210,8 +206,8 @@ export const ShortcutsIcon = ({
 );
 
 export const LogoutIcon = ({
-    width = '1.6rem',
-    height = '1.6rem',
+    width = '2.8rem',
+    height = '2.8rem',
     className,
 }) => (
     <svg
@@ -231,8 +227,8 @@ export const LogoutIcon = ({
 );
 
 export const HomeIcon = ({
-    width = '2.4rem',
-    height = '2.4rem',
+    width = '3.2rem',
+    height = '3.2rem',
     className,
 }) => (
     <svg
@@ -248,8 +244,8 @@ export const HomeIcon = ({
 );
 
 export const HomeActiveIcon = ({
-    width = '2.4rem',
-    height = '2.4rem',
+    width = '3.2rem',
+    height = '3.2rem',
     className,
 }) => (
     <svg
@@ -265,8 +261,8 @@ export const HomeActiveIcon = ({
 );
 
 export const FollowingIcon = ({
-    width = '2.4rem',
-    height = '2.4rem',
+    width = '3.2rem',
+    height = '3.2rem',
     className,
 }) => (
     <svg
@@ -282,8 +278,8 @@ export const FollowingIcon = ({
 );
 
 export const FollowingActiveIcon = ({
-    width = '2.4rem',
-    height = '2.4rem',
+    width = '3.2rem',
+    height = '3.2rem',
     className,
 }) => (
     <svg
@@ -299,8 +295,8 @@ export const FollowingActiveIcon = ({
 );
 
 export const DiscoverIcon = ({
-    width = '2.4rem',
-    height = '2.4rem',
+    width = '3.2rem',
+    height = '3.2rem',
     className,
 }) => (
     <svg
@@ -317,8 +313,8 @@ export const DiscoverIcon = ({
 );
 
 export const DiscoverActiveIcon = ({
-    width = '2.4rem',
-    height = '2.4rem',
+    width = '3.2rem',
+    height = '3.2rem',
     className,
 }) => (
     <svg

@@ -1,0 +1,89 @@
+.wrapper {
+    --font-size-name: 1.4rem;
+    --background-color-hover: rgba(22, 24, 35, 0.05);
+
+    font-family:
+        'TikTokFont',
+        system-ui,
+        -apple-system,
+        Segoe UI,
+        Roboto,
+        Ubuntu,
+        Cantarell,
+        Noto Sans,
+        sans-serif,
+        'Roboto',
+        'Noto Sans',
+        sans-serif,
+        'Apple Color Emoji',
+        'Segoe UI Emoji',
+        'Segoe UI Symbol',
+        'Noto Color Emoji';
+    border-top: 1px solid rgba(22, 24, 35, 0.09);
+    padding: 8px 0px;
+}
+
+.suggest-title {
+    font-size: 1.2rem;
+    padding: 8px;
+    font-weight: 700;
+    color: rgba(22, 24, 35, 0.4);
+}
+
+.account-item {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    transition: background-color ease-in-out 200ms;
+    border-radius: 6px;
+    &:hover {
+        background-color: var(--background-color-hover);
+    }
+}
+
+.avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    margin-top: -4px;
+}
+
+.information-user {
+    flex: 1;
+    margin-left: 12px;
+}
+
+.name {
+    font-size: var(--font-size-name);
+    line-height: 1;
+}
+
+.check {
+    font-size: var(--font-size-name);
+    margin-left: 4px;
+    color: #20d5ec;
+}
+
+.nickname {
+    font-size: var(--font-size-name);
+    color: rgba(22, 24, 35, 0.6);
+}
+
+//More
+.more {
+    width: 100%;
+    padding: 8px;
+    line-height: 2;
+    justify-content: flex-start;
+    &:hover {
+        background-color: var(--background-color-hover);
+    }
+}
+.more-btn {
+    font-size: 1.6rem;
+    color: var(--text-color);
+    font-weight: 700;
+    cursor: pointer;
+    padding: 8px;
+}

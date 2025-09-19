@@ -1,14 +1,23 @@
+.nav-menu {
+    padding-bottom: 16px;
+}
 .wrapper {
     display: flex;
     align-items: center;
     font-weight: 700;
-    padding: 6px 0;
+    padding: 6px;
+    border-radius: 6px;
+    transition: background-color ease-in-out 200ms;
+    &:hover {
+        background-color: rgba(22, 34, 25, 0.05);
+    }
 }
 
 .title {
     flex: 1;
     margin-left: 12px;
-    font-size: 20px;
+    font-size: 1.8rem;
+    color: var(--text-color);
 }
 
 .active {

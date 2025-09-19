@@ -10,6 +10,7 @@ import {
     DiscoverIcon,
     DiscoverActiveIcon,
 } from '@/components/icons/Icons';
+import SuggestedAccounts from '@/components/SuggestedAccounts/SuggestedAccounts';
 
 const cx = classNames.bind(styles);
 function SideBar() {
@@ -35,6 +36,8 @@ function SideBar() {
                     iconActive={<DiscoverActiveIcon />}
                 />
             </Menu>
+            <SuggestedAccounts lable="Suggested Accounts" />
+            <SuggestedAccounts lable="Following Accounts" />
         </aside>
     );
 }
