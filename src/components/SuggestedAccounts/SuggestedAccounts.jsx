@@ -12,11 +12,16 @@ function SuggestedAccounts({ lable }) {
     return (
         <div className={cx('wrapper')}>
             <p className={cx('suggest-title')}>{lable}</p>
-            <AccountItem />
-            <AccountItem />
-            <AccountItem />
+            <AccountItem lable={lable} />
+            <AccountItem lable={lable} />
+            <AccountItem lable={lable} />
             <Button
-                leftIcon={<FontAwesomeIcon icon={faAngleDown} />}
+                leftIcon={
+                    <FontAwesomeIcon
+                        className={cx('icon')}
+                        icon={faAngleDown}
+                    />
+                }
                 className={cx('more')}
             >
                 <span className={cx('more-btn')}>See All</span>
