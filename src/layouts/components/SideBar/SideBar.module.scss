@@ -1,6 +1,10 @@
 .wrapper {
-    width: 356px;
-    min-height: 1000px;
-    padding: 20px 0px 26px 0px;
+    width: var(--default-layout-sidebar);
+    padding: 16px 0px 10px 0px;
     margin-left: -10px;
+    position: fixed;
+    top: var(--default-layout-height-header);
+    height: calc(100vh - var(--default-layout-height-header));
+    overflow-y: overlay;
+    z-index: 1000;
 }

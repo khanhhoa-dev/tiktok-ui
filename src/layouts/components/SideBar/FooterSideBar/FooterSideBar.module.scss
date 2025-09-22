@@ -1,0 +1,21 @@
+.footer {
+    padding: 8px;
+}
+
+.title {
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.title + .title {
+    margin-top: 4px;
+}
+
+.copyright {
+    display: inline-block;
+    padding-top: 6px;
+    font-size: 1.2rem;
+    font-weight: 600;
+}

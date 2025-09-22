@@ -8,13 +8,13 @@ import styles from './SuggestedAccounts.module.scss';
 import AccountItem from './AccountItem';
 
 const cx = classNames.bind(styles);
-function SuggestedAccounts({ lable }) {
+function SuggestedAccounts({ lable, datas }) {
     return (
         <div className={cx('wrapper')}>
             <p className={cx('suggest-title')}>{lable}</p>
-            <AccountItem lable={lable} />
-            <AccountItem lable={lable} />
-            <AccountItem lable={lable} />
+            {datas.map((data, i) => {
+                return <AccountItem key={i} data={data} lable={lable} />;
+            })}
             <Button
                 leftIcon={
                     <FontAwesomeIcon
@@ -30,7 +30,8 @@ function SuggestedAccounts({ lable }) {
     );
 }
 
-SuggestedAccounts.propsTypes = {
+SuggestedAccounts.propTypes = {
     lable: PropTypes.string.isRequired,
+    datas: PropTypes.array.isRequired,
 };
 export default SuggestedAccounts;

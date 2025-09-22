@@ -11,14 +11,14 @@ import Image from '../Images';
 
 const cx = classNames.bind(styles);
 
-function AccountItem({ lable }) {
+function AccountItem({ lable, data }) {
     const isSuggested = lable === 'Suggested Accounts';
 
     const renderPreview = props => {
         return (
             <div {...props} tabIndex="-1" className={cx('preview')}>
                 <PopperWrapper>
-                    <AccountPreview />
+                    <AccountPreview data={data} />
                 </PopperWrapper>
             </div>
         );
@@ -26,20 +26,18 @@ function AccountItem({ lable }) {
 
     const content = (
         <div className={cx('account-item')}>
-            <Image
-                className={cx('avatar')}
-                src="https://p16-sign-sg.tiktokcdn.com/tos-alisg-avt-0068/c14a92a8e2e23babececab98c0f67fac~tplv-tiktokx-cropcenter:100:100.jpeg?dr=14579&refresh_token=55fb3a0b&x-expires=1758416400&x-signature=%2B7oLPkRzng%2BYQ86SrZig%2FxECCVc%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=my"
-                alt="avatar"
-            />
+            <Image className={cx('avatar')} src={data.url_pic} alt="avatar" />
             <div className={cx('information-user')}>
                 <h4 className={cx('name')}>
-                    Son Tung MTP
-                    <FontAwesomeIcon
-                        className={cx('check')}
-                        icon={faCheckCircle}
-                    />
+                    {data.name}
+                    {data.check && (
+                        <FontAwesomeIcon
+                            className={cx('check')}
+                            icon={faCheckCircle}
+                        />
+                    )}
                 </h4>
-                <p className={cx('nickname')}>capyboiii_7</p>
+                <p className={cx('nickname')}>{data.nickname}</p>
             </div>
         </div>
     );
@@ -61,8 +59,9 @@ function AccountItem({ lable }) {
     );
 }
 
-AccountItem.propsTypes = {
+AccountItem.propTypes = {
     lable: PropTypes.string.isRequired,
+    data: PropTypes.object.isRequired,
 };
 
 export default AccountItem;

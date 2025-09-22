@@ -1,4 +1,6 @@
 import classNames from 'classnames/bind';
+import { useState, useEffect } from 'react';
+
 import styles from './SideBar.module.scss';
 import Menu, { MenuItem } from './Menu';
 import config from '@/config';
@@ -11,9 +13,33 @@ import {
     DiscoverActiveIcon,
 } from '@/components/icons/Icons';
 import SuggestedAccounts from '@/components/SuggestedAccounts/SuggestedAccounts';
+import FooterSideBar from './FooterSideBar/FooterSideBar';
+import * as Account from '@/services/accountService';
 
 const cx = classNames.bind(styles);
 function SideBar() {
+    const [suggested, setSuggested] = useState([]);
+    const [following, setFollowing] = useState([]);
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        const fetchApi = async () => {
+            try {
+                const [resultSuggested, resultFollow] = await Promise.all([
+                    Account.AccountSuggested(),
+                    Account.AccountFollowing(),
+                ]);
+                setSuggested(resultSuggested);
+                setFollowing(resultFollow);
+            } catch (error) {
+                console.error('Error in getAccountSuggested:', error);
+                throw error;
+            }
+            setLoading(true);
+        };
+
+        fetchApi();
+    }, []);
     return (
         <aside className={cx('wrapper')}>
             <Menu>
@@ -36,8 +62,19 @@ function SideBar() {
                     iconActive={<DiscoverActiveIcon />}
                 />
             </Menu>
-            <SuggestedAccounts lable="Suggested Accounts" />
-            <SuggestedAccounts lable="Following Accounts" />
+            {loading && (
+                <>
+                    <SuggestedAccounts
+                        lable="Suggested Accounts"
+                        datas={suggested}
+                    />
+                    <SuggestedAccounts
+                        lable="Following Accounts"
+                        datas={following}
+                    />
+                </>
+            )}
+            <FooterSideBar />
         </aside>
     );
 }
