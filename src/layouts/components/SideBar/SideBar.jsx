@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
-import { useState, useEffect } from 'react';
 
+import { useFetchAccount } from '@/hooks';
 import styles from './SideBar.module.scss';
 import Menu, { MenuItem } from './Menu';
 import config from '@/config';
@@ -18,28 +18,19 @@ import * as Account from '@/services/accountService';
 
 const cx = classNames.bind(styles);
 function SideBar() {
-    const [suggested, setSuggested] = useState([]);
-    const [following, setFollowing] = useState([]);
-    const [loading, setLoading] = useState(false);
+    const {
+        datas: suggested,
+        isFull: isFullSuggested,
+        loading: loadingSuggested,
+        handleToggleParams: handleToggleSuggested,
+    } = useFetchAccount(Account.AccountSuggested);
 
-    useEffect(() => {
-        const fetchApi = async () => {
-            try {
-                const [resultSuggested, resultFollow] = await Promise.all([
-                    Account.AccountSuggested(),
-                    Account.AccountFollowing(),
-                ]);
-                setSuggested(resultSuggested);
-                setFollowing(resultFollow);
-            } catch (error) {
-                console.error('Error in getAccountSuggested:', error);
-                throw error;
-            }
-            setLoading(true);
-        };
-
-        fetchApi();
-    }, []);
+    const {
+        datas: following,
+        isFull: isFullFollowing,
+        loading: loadingFollowing,
+        handleToggleParams: handleToggleFollowing,
+    } = useFetchAccount(Account.AccountFollowing);
     return (
         <aside className={cx('wrapper')}>
             <Menu>
@@ -62,18 +53,21 @@ function SideBar() {
                     iconActive={<DiscoverActiveIcon />}
                 />
             </Menu>
-            {loading && (
-                <>
-                    <SuggestedAccounts
-                        lable="Suggested Accounts"
-                        datas={suggested}
-                    />
-                    <SuggestedAccounts
-                        lable="Following Accounts"
-                        datas={following}
-                    />
-                </>
-            )}
+
+            <SuggestedAccounts
+                lable="Suggested Accounts"
+                datas={suggested}
+                isFull={isFullSuggested}
+                onToggle={handleToggleSuggested}
+                loading={loadingSuggested}
+            />
+            <SuggestedAccounts
+                lable="Following Accounts"
+                datas={following}
+                isFull={isFullFollowing}
+                onToggle={handleToggleFollowing}
+                loading={loadingFollowing}
+            />
             <FooterSideBar />
         </aside>
     );

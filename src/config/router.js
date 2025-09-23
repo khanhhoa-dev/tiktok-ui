@@ -1,7 +1,7 @@
 const router = {
     home: '/',
     following: '/following',
-    profile: '/profile',
+    profile: '/profile/:nickname',
     upload: '/upload',
     discover: '/discover',
 };

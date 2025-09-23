@@ -10,7 +10,7 @@ import Images from '@/components/Images';
 const cx = classNames.bind(styles);
 function AccountItem({ data }) {
     return (
-        <Link to={`/@${data.nickname}`} className={cx('wrapper')}>
+        <Link to={`/profile/${data.nickname}`} className={cx('wrapper')}>
             <Images
                 src={data.avatar}
                 alt={data.nickname}

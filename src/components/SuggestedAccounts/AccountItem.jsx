@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react/headless';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import styles from './SuggestedAccounts.module.scss';
 import { Wrapper as PopperWrapper } from '@/components/Popper';
@@ -25,7 +26,7 @@ function AccountItem({ lable, data }) {
     };
 
     const content = (
-        <div className={cx('account-item')}>
+        <Link to={`/profile/${data.nickname}`} className={cx('account-item')}>
             <Image className={cx('avatar')} src={data.url_pic} alt="avatar" />
             <div className={cx('information-user')}>
                 <h4 className={cx('name')}>
@@ -39,7 +40,7 @@ function AccountItem({ lable, data }) {
                 </h4>
                 <p className={cx('nickname')}>{data.nickname}</p>
             </div>
-        </div>
+        </Link>
     );
 
     return isSuggested ? (
