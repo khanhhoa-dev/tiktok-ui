@@ -8,7 +8,7 @@ import styles from './SuggestedAccounts.module.scss';
 import AccountItem from './AccountItem';
 
 const cx = classNames.bind(styles);
-function SuggestedAccounts({ lable, datas, onToggle, isFull, loading }) {
+function SuggestedAccounts({ lable, datas, onToggle, isFull }) {
     return (
         <div className={cx('wrapper')}>
             <p className={cx('suggest-title')}>{lable}</p>
@@ -19,14 +19,14 @@ function SuggestedAccounts({ lable, datas, onToggle, isFull, loading }) {
                 leftIcon={
                     <FontAwesomeIcon
                         className={cx('icon')}
-                        icon={isFull && !loading ? faAngleUp : faAngleDown}
+                        icon={isFull ? faAngleUp : faAngleDown}
                     />
                 }
                 className={cx('more')}
                 onClick={onToggle}
             >
                 <span className={cx('more-btn')}>
-                    {loading ? 'Loading...' : isFull ? 'Collapse' : 'See All'}
+                    {isFull ? 'Collapse' : 'See All'}
                 </span>
             </Button>
         </div>
@@ -38,6 +38,5 @@ SuggestedAccounts.propTypes = {
     datas: PropTypes.array.isRequired,
     onToggle: PropTypes.func,
     isFull: PropTypes.bool,
-    loading: PropTypes.bool,
 };
 export default SuggestedAccounts;

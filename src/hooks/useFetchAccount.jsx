@@ -1,26 +1,24 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-function useFetchAccount(fetchApi, initialParams = '5') {
+function useFetchAccount(fetchApi, initialParams = 5) {
     const [state, setState] = useState({
         datas: [],
-        loading: true,
         isFull: false,
     });
     useEffect(() => {
-        const fetch = async params => {
+        const fetch = async () => {
             try {
-                const result = await fetchApi(params);
+                const result = await fetchApi();
                 setState(prev => ({
                     ...prev,
                     datas: result,
-                    loading: false,
                 }));
             } catch (error) {
                 console.log(error);
             }
         };
-        fetch(state.isFull ? 'all' : initialParams);
+        fetch();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [state.isFull]);
 
@@ -28,15 +26,17 @@ function useFetchAccount(fetchApi, initialParams = '5') {
         setState(prev => ({
             ...prev,
             isFull: !prev.isFull,
-            loading: true,
         }));
     };
-    return { ...state, handleToggleParams };
+    const datas = state.isFull
+        ? state.datas
+        : state.datas.slice(0, initialParams);
+    return { ...state, handleToggleParams, datas };
 }
 
 useFetchAccount.propTypes = {
     fetchApi: PropTypes.func.isRequired,
-    initialParams: PropTypes.string,
+    initialParams: PropTypes.number,
 };
 
 export default useFetchAccount;

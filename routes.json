@@ -1,0 +1,4 @@
+{
+    "/accounts/suggested": "/accounts?type=suggested",
+    "/accounts/following": "/accounts?type=following"
+}

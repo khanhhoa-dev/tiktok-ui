@@ -21,14 +21,12 @@ function SideBar() {
     const {
         datas: suggested,
         isFull: isFullSuggested,
-        loading: loadingSuggested,
         handleToggleParams: handleToggleSuggested,
     } = useFetchAccount(Account.AccountSuggested);
 
     const {
         datas: following,
         isFull: isFullFollowing,
-        loading: loadingFollowing,
         handleToggleParams: handleToggleFollowing,
     } = useFetchAccount(Account.AccountFollowing);
     return (
@@ -59,14 +57,12 @@ function SideBar() {
                 datas={suggested}
                 isFull={isFullSuggested}
                 onToggle={handleToggleSuggested}
-                loading={loadingSuggested}
             />
             <SuggestedAccounts
                 lable="Following Accounts"
                 datas={following}
                 isFull={isFullFollowing}
                 onToggle={handleToggleFollowing}
-                loading={loadingFollowing}
             />
             <FooterSideBar />
         </aside>

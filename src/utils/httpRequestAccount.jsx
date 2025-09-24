@@ -19,7 +19,7 @@ export const getAccountFollowing = async (path, option = {}) => {
         const result = await requestAccount.get(path, option);
         return result.data;
     } catch (error) {
-        console.error('Error in getAccountSuggested:', error);
+        console.error('Error in getAccountFollowing:', error);
         throw error;
     }
 };
