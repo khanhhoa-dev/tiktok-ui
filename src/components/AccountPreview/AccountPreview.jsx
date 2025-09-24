@@ -6,9 +6,14 @@ import PropTypes from 'prop-types';
 import styles from './AccountPreview.module.scss';
 import Image from '../Images';
 import { Button } from '../Button';
+import * as Account from '@/services/accountService';
 
 const cx = classNames.bind(styles);
 function AccountPreview({ data }) {
+    const handleFollow = async () => {
+        const dataPost = data.id;
+        await Account.Follow(dataPost);
+    };
     return (
         <div className={cx('wrapper')}>
             <header className={cx('header')}>
@@ -18,7 +23,11 @@ function AccountPreview({ data }) {
                     alt="AvatarAccountPreview"
                 />
                 <div>
-                    <Button primary className={cx('follow-btn')}>
+                    <Button
+                        primary
+                        className={cx('follow-btn')}
+                        onClick={handleFollow}
+                    >
                         Follow
                     </Button>
                 </div>

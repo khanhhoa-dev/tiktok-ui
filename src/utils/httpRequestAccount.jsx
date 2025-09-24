@@ -23,3 +23,14 @@ export const getAccountFollowing = async (path, option = {}) => {
         throw error;
     }
 };
+
+// Follow
+export const patchFollow = async (path, data = {}, option = {}) => {
+    // eslint-disable-next-line no-useless-catch
+    try {
+        const result = await requestAccount.patch(path, data, option);
+        return result.data;
+    } catch (error) {
+        throw error;
+    }
+};
