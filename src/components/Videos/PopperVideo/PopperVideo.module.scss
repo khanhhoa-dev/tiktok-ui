@@ -1,0 +1,13 @@
+.menu {
+    position: relative;
+}
+.menu-popper {
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+}
+.icon {
+    padding: 4px;
+    color: var(--while);
+    cursor: pointer;
+}

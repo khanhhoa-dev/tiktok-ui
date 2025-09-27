@@ -1,0 +1,28 @@
+.wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    border: 1px solid transparent;
+    background-color: var(--while);
+    color: var(--text-color);
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.4;
+    padding: 10px 12px;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 6px;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.06);
+    }
+}
+
+.icon + .content,
+.content + .icon {
+    margin-left: 8px;
+}
+
+.icon {
+    line-height: 0;
+}
